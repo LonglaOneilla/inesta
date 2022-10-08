@@ -52,8 +52,8 @@ function App() {
       }>
         <ToastContainer position="top-center" limit={1} />
         <header>
-        
-        <Navigation />
+
+          <Navigation />
           <Navbar bg='dark' variant='dark' expand='lg'>
             <Container>
               <Button variant="dart"
