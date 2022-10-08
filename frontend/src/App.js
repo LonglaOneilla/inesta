@@ -52,6 +52,8 @@ function App() {
       }>
         <ToastContainer position="top-center" limit={1} />
         <header>
+        
+        <Navigation />
           <Navbar bg='dark' variant='dark' expand='lg'>
             <Container>
               <Button variant="dart"
@@ -100,7 +102,6 @@ function App() {
               </Navbar.Collapse>
             </Container>
           </Navbar >
-          <Navigation />
         </header>
         <main>
           <Container className='mt-3'>
