@@ -1,25 +1,32 @@
 import { LinkContainer } from 'react-router-bootstrap';
-import { Navbar, Container, Nav, Badge, NavDropdown } from 'react-bootstrap';
+import { Navbar, Container, Nav, Badge, NavDropdown, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { Store } from '../Store';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
+import { FaAlignJustify } from 'react-icons/fa';
 
 const Navigation = () => {
 
     const { state, dispatch: ctxDispatch } = useContext(Store);
     const { cart, userInfo } = state;
+    const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
 
     const signoutHandler = () => {
         ctxDispatch({ type: 'USER_SIGNOUT' });
         localStorage.removeItem('userInfo');
         localStorage.removeItem('shippingAddress');
         localStorage.removeItem('paymentMethod');
-        window.location.href='/signin';
+        window.location.href = '/signin';
     }
 
     return (
         <Navbar bg='dark' variant='dark' expand='lg'>
             <Container>
+                <Button variant="dart"
+                    onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
+                >
+                    <FaAlignJustify />
+                </Button>
                 <LinkContainer to="/">
                     <Navbar.Brand>
                         LEO-NIC FASION
