@@ -1,5 +1,5 @@
 import React from 'react';
-import { MDBFooter, MDBContainer, MDBInput, MDBCol, MDBRow, MDBBtn } from 'mdb-react-ui-kit';
+import { MDBFooter, MDBContainer,  MDBBtn } from 'mdb-react-ui-kit';
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaInstagram, FaGithub } from "react-icons/fa";
 import { SiGmail } from 'react-icons/si'
 
