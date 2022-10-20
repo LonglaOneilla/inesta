@@ -31,9 +31,8 @@ import DashboardScreen from './screens/DashboardScreen';
 import AdminRoute from './components/AdminRoute';
 import ProductListScreen from './screens/ProductListScreen';
 import Navigation from './screens/Navigation';
-import {MDBFooter,MDBContainer, MDBInput,MDBCol,MDBRow,MDBBtn} from 'mdb-react-ui-kit';
-import { FaFacebookF,FaTwitter,FaLinkedinIn,FaInstagram,FaGithub } from "react-icons/fa";
-import {SiGmail} from 'react-icons/si'
+import { MDBFooter, } from 'mdb-react-ui-kit';
+import Footer from './components/Footer';
 
 
 
@@ -167,7 +166,7 @@ function App() {
             ))}
           </Nav>
         </div>
-        <main>
+        <main className='mb-5'>
           <Container className='mt-3' fluid>
             <Routes>
               <Route path="/" element={<HomeScreen />} />
@@ -212,40 +211,10 @@ function App() {
             </Routes>
           </Container>
         </main>
+        <Footer />
         <footer>
           <MDBFooter className='text-center' color='white' bgColor='dark'>
-            <MDBContainer className='p-4'>
-            <div className='contact-us mb-3'>Contact Us</div>
-              <section className='mb-4'>
-              
-                <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
-                  <FaFacebookF />
-                </MDBBtn>
-
-                <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
-                  <FaTwitter />
-                </MDBBtn>
-
-                <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
-                  <FaLinkedinIn />
-                </MDBBtn>
-
-                <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
-                  <FaInstagram />
-                </MDBBtn>
-
-                <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
-                  <SiGmail />
-                </MDBBtn>
-
-                <MDBBtn outline color="light" floating className='m-1' href='#!' role='button'>
-                  <FaGithub />
-                </MDBBtn>
-              </section>
-
-            </MDBContainer>
-
-            <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
+            <div className='text-center p-2' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
               © 2022 Copyright: {''}
               <a className='text-white' href='/'>
                 {''} All Rights Reserved
