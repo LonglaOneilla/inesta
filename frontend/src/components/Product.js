@@ -40,14 +40,14 @@ function Product(props) {
             </Link>
             <Card.Body>
                 <Link to={`/product/${product.slug}`}>
-                    <Card.Title>{product.name}</Card.Title>
+                    <Card.Title className='product-title'>{product.name}</Card.Title>
                 </Link>
                 <Rating rating={product.rating} numReviews={product.numReviews} />
-                <Card.Text>${product.price}</Card.Text>
+                <Card.Text className='product-text'>${product.price}</Card.Text>
                 {
                     product.countInStock === 0
                         ?
-                        <Button variant='light' disabled>
+                        <Button variant='dark' disabled>
                             Out Of Stock
                         </Button>
                         :

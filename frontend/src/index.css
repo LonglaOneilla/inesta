@@ -1,19 +1,21 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+    margin: none;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-.site-container{
+.site-container {
     min-height: 100vh;
 }
+
 /* header {
     background-color: #404040;
     padding:1rem;
@@ -23,63 +25,115 @@ header a{
     color:#ffffff;
 } */
 
-main{
+main {
     flex: 1;
+    width: 100%;
+    margin: 0;
 }
-.btn-primary{
-    color: black;
-    background-color: #ffc000;
+
+.btn-primary,
+.btn-outline-primary {
+    color: white;
+    font-weight: bold;
+    border: none;
+    background-color: rgb(250, 35, 6);
 }
-.products{
+
+.brand {
+    padding-left: 2rem;
+}
+
+.nav2 {
+    background-color: white;
+}
+
+@media only screen and (max-width: 1000px) {
+    .sidebarbutton {
+        display: none !important;
+    }
+
+}
+
+
+.h1 {
+    font-size: xx-large;
+    font-weight: bolder;
+}
+
+.products {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
-.product{
-    border: 1px solid #404040;
+
+.product {
+    border: 1px solid lavender;
+    background-color: rgb(247, 247, 252);
     margin: 1rem;
 }
-.product img{
-    width: 250px;
-}
-.product-info{
-   padding: 1rem; 
+
+.product img {
+    padding: 0.8rem;
+    width: 100%;
+    height: 300px;
 }
 
-.rating span{
-    color: #ffc000;
+.product-info {
+    padding: 1rem;
 }
-.review{
+
+.product-title{
+    color: #100901;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: capitalize;
+}
+
+.product-text{
+    color: #100901;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-transform: capitalize;
+    font-weight: 600;
+}
+.rating span {
+    color: #ffc000;
+    
+}
+.rating{
+    padding-bottom: 0.5rem;
+}
+
+.review {
     padding-left: 15px;
 }
 
-.img-large{
+.img-large {
     max-width: 100%;
 }
 
-.img-thumbnail{
+.img-thumbnail {
     height: 80px;
 }
 
-.small-container{
-    max-width:600px
+.small-container {
+    max-width: 600px
 }
 
-.checkout-steps>div{
+.checkout-steps>div {
     border-bottom: 0.2rem solid #a0a0a0;
     color: #a0a0a0;
 }
 
-.checkout-steps>div.active{
+.checkout-steps>div.active {
     border-bottom: 0.2rem solid #f08000;
     color: #f08000;
 }
 
 /* sidebar */
-.navbar-brand{
+.navbar-brand {
     font-weight: bold;
 }
-.side-navbar{
+
+.side-navbar {
     width: 240px;
     height: 100%;
     position: absolute;
@@ -87,12 +141,50 @@ main{
     background-color: #100901;
     transition: 0.5s;
 }
-.site-container{
+
+.site-container {
     transition: 0.4s;
 }
-.active-cont{
+
+.active-cont {
     margin-left: 240px;
 }
-.active-nav{
+
+.active-nav {
     left: 0;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+/* welcome page */
+
+.welcome {
+    padding-left: none;
+    margin-left: none;
+    width: 100%;
+    background: rgb(241, 245, 246);
+}
+
+.collections {
+    padding-top: 10rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: large;
+}
+
+.collection {
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: larger;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+/* welcome page ends */
+
+.contact-us{
+    font-size: larger;
+    font-weight: 700;
+    text-transform: uppercase;
 }

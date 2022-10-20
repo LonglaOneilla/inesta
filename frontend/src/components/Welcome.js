@@ -1,16 +1,10 @@
-
 import { useReducer, useEffect } from 'react';
 import axios from 'axios';
-//import Data from '../data';
-import { Helmet } from 'react-helmet-async';
-import { Row, Col } from 'react-bootstrap';
 import Product from '../components/Product';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import getError from '../util';
-import Welcome from '../components/Welcome';
-
-
+import { Button, Col, Row } from 'react-bootstrap';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -25,7 +19,8 @@ const reducer = (state, action) => {
     }
 }
 
-const HomeScreen = () => {
+const Welcome = () => {
+
     const [{ loading, error, products }, dispatch] = useReducer(reducer, {
         products: [],
         loading: true,
@@ -47,32 +42,29 @@ const HomeScreen = () => {
         };
         fetchData();
     }, []);
-    return (
-        <div >
-            <Helmet>
-                <title>Inesta Fashion</title>
-            </Helmet>
-            <Welcome />
-            <div className='mt-5'>
-                <center><h1 className='h1'>All Products</h1></center>
 
-                <div className="products">
-                    {
-                        loading ? (<LoadingBox />) :
-                            error ? (<MessageBox variant='danger'>{error}</MessageBox>) :
-                                (<Row>
-                                    {products.map((product) => (
-                                        <Col key={product.slug} sm={6} md={4} lg={3} className='mb-3'>
-                                            <Product product={product}></Product>
-                                        </Col>
-                                    ))}
-                                </Row>)
-                    }
-                </div>
-            </div>
-            
+    return (
+        <div className="welcome">
+
+            <Row>
+                <Col md={6} className='mb-5' >
+                    <center>
+                        <p className='collections'>Check out our latest collections</p>
+                        <p className="collection">
+                            Get 50% off New Arrivals
+                        </p>
+
+                        <Button>Shop Now</Button>
+                    </center>
+                </Col>
+                <Col md={6}>
+                    <img src="leo.png" alt="" width="auto"
+                        className='justify-content-end' />
+                </Col>
+            </Row>
+
         </div>
     );
 }
 
-export default HomeScreen;
+export default Welcome;

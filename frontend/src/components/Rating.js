@@ -2,7 +2,7 @@
 import { FaStarHalfAlt, FaStar, FaRegStar } from 'react-icons/fa'
 
 const Rating = (props) => {
-    const { rating, numReviews } = props;
+    const { rating, numReviews, caption } = props;
     return (
         <div className="rating">
             <span className=''>
@@ -25,7 +25,13 @@ const Rating = (props) => {
                 {rating >= 5 ? <FaStar /> :
                     rating >= 4.5 ? <FaStarHalfAlt /> : <FaRegStar />}
             </span>
-            <span className='review'>{numReviews} reviews</span>
+            {
+                caption ? (
+                    <span>{caption}</span>
+                ) : (
+                    <span>{' ' + numReviews + 'reviews'}</span>
+                )
+            }
         </div>
     );
 }

@@ -1,69 +1,56 @@
-import { LinkContainer } from 'react-router-bootstrap';
-import { Navbar, Container, Nav, Badge, NavDropdown, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { Store } from '../Store';
-import { useContext, useState } from 'react';
-import { FaAlignJustify } from 'react-icons/fa';
+
+import { Navbar, Container, Nav, NavDropdown, } from 'react-bootstrap';
+
 
 const Navigation = () => {
 
-    const { state, dispatch: ctxDispatch } = useContext(Store);
-    const { cart, userInfo } = state;
-    const [sidebarIsOpen, setSidebarIsOpen] = useState(false);
+    function languageHandler(prop) {
 
-    const signoutHandler = () => {
-        ctxDispatch({ type: 'USER_SIGNOUT' });
-        localStorage.removeItem('userInfo');
-        localStorage.removeItem('shippingAddress');
-        localStorage.removeItem('paymentMethod');
-        window.location.href = '/signin';
+        return prop
     }
+
+    function currencyHandler(prop) {
+
+        return prop
+    }
+
 
     return (
         <Navbar bg='dark' variant='dark' expand='lg'>
             <Container>
-                <Button variant="dart"
-                    onClick={() => setSidebarIsOpen(!sidebarIsOpen)}
-                >
-                    <FaAlignJustify />
-                </Button>
-                <LinkContainer to="/">
-                    <Navbar.Brand>
-                        LEO-NIC FASION
-                    </Navbar.Brand>
-                </LinkContainer>
+
+                <Navbar.Brand>
+                    ANNOUNCEMENTS
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto w-100 justify-content-end">
-                        <Link to="/cart" className="nav-link">
-                            Cart
-                            {cart.cartItems.length > 0 && (
-                                <Badge pill bg="danger">
-                                    {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}
-                                </Badge>
-                            )}
-                        </Link>
-                        {userInfo ? (
-                            <NavDropdown title={userInfo.name}
-                                id="basic-nav-dropdown">
-                                <LinkContainer to="/profile">
-                                    <NavDropdown.Item>User Profile</NavDropdown.Item>
-                                </LinkContainer>
-                                <LinkContainer to="/orderhistory">
-                                    <NavDropdown.Item>Order History</NavDropdown.Item>
-                                </LinkContainer>
-                                <Link className="dropdown-item"
-                                    to="#signout"
-                                    onClick={signoutHandler}
-                                >
-                                    Sign Out
-                                </Link>
-                            </NavDropdown>
-                        ) : (
-                            <Link className="nav-link" to="/signin">
-                                Sign In
-                            </Link>
-                        )}
+
+
+                        <NavDropdown title={'currency'}
+                            id="basic-nav-dropdown">
+
+                            <NavDropdown.Item
+                                onClick={currencyHandler("usd")}
+                            >USD</NavDropdown.Item>
+                            <NavDropdown.Item
+                                onClick={currencyHandler("xaf")}
+                            >XAF</NavDropdown.Item>
+
+                        </NavDropdown>
+
+                        <NavDropdown title={'Language'}
+                            id="basic-nav-dropdown">
+
+                            <NavDropdown.Item
+                                onClick={languageHandler('english')}
+                            >English</NavDropdown.Item>
+                            <NavDropdown.Item
+                                onClick={languageHandler("french")}
+                            >French</NavDropdown.Item>
+
+                        </NavDropdown>
+
                     </Nav>
                 </Navbar.Collapse>
             </Container>
